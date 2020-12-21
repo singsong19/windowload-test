@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window load</title>
+    <script src="test.js" defer></script>
+    <!-- defer obtion을 넣게되면, js파일에 있는 js loaded가 먼저 출력 -->
+</head>
+<body>
+    <script>
+        //document만, 즉 html만 완료가 되면 호출되는 아이.
+         window.addEventListener('DOMContentLoaded', ()=>{
+            console.log('DOMContentLoaded')
+        });
+        //html을 읽어 DOM요소로 변환 후 script를 만나면 window에 이벤트 리스터 등록!
+        //window에 필요한 페이지 리소스가 로딩이 되면 콜백함수 출력!(가장 마지막에 호출)
+        window.addEventListener('load', ()=>{
+            console.log('load')
+        });
+        //unloaded가 되기 전에 호출!
+        //사용자가 페이지를 나가기 전에, 브라우저에서 페이지를 내리기 전에 무언가 해야할 때
+        window.addEventListener('beforeunload', ()=>{
+            console.log('beforeunload')
+        });
+        //리소스들이 unloaded가 되었을 때 호출
+        window.addEventListener('unload', ()=>{
+            console.log('unload')
+        });
+
+    </script>
+</body>
+</html>
